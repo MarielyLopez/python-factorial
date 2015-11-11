@@ -1,15 +1,21 @@
-# Aqui escribe tu codigo
-
-#print "Hello World"
+#coding:utf-8
+import os
+import sys
 
 def insert_number():
-    number = raw_input("Insert a number: ")
-    a = verific_number(number)
-    if a == True:
-        print "numero valido"
-    else:
-        print "no es nunero"
-    return number
+    print "Welcome to factorial!"
+    print " "
+    valid = True
+    while valid == True:
+        number = raw_input("Insert a number: ")
+        verific = verific_number(number)
+        if verific == True:
+            fact = factorial(number)
+            print "The factorial of %s is %s" % (number,fact)
+            question_y_n()
+            valid = False
+        else:
+            print "Try again."
 
 def verific_number(number):
     answer_u = True
@@ -22,8 +28,25 @@ def verific_number(number):
         except ValueError:
             print "Try again"
 
+def factorial(number):
+    num = 1
+    number = int(number)
+    while number >= 1:
+        num = num * number
+        number = number - 1
+    return num
 
+def question_y_n():
+    yesornot = True
+    while yesornot == True:
+        user_answer = raw_input("Do you want enter other number ? y / n: ")
+        if user_answer == "y" or user_answer == "yes":
+            insert_number()
+        elif user_answer == "n" or user_answer == "not":
+            print " Good bye."
+            sys.exit(1)
+        else:
+            print "Insert yes or not."
 
-"""Para el range en el insert_number imprimir cada elemento""" 
 if __name__ == '__main__':
     insert_number()
