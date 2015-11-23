@@ -18,29 +18,23 @@ def insert_number():
             print "Try again."
 
 def verific_number(number):
-    answer_u = True
-    while answer_u == True:
-        try:
-            if True == number.isdigit():
-                return True
-            else:
-                return False
-        except ValueError:
-            print "Try again"
+        if True == number.isdigit():
+            return True
+        else:
+            return False
 
 def factorial(number):
-    num = 1
     number = int(number)
-    while number >= 1:
-        num = num * number
-        number = number - 1
-    return num
+    if number > 1:
+        number *= (number - 1)
+    return number
 
 def question_y_n():
     yesornot = True
     while yesornot == True:
         user_answer = raw_input("Do you want enter other number ? y / n: ")
         if user_answer == "y" or user_answer == "yes":
+            print ""
             insert_number()
         elif user_answer == "n" or user_answer == "not":
             print " Good bye."
